@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="文言文连连看：以游戏之心，习文言之道。三套题库、限时配对、进度成就，离线可玩。">
+<title>文言文连连看 · 以游戏之心，习文言之道</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- 全局音效开关 -->
+<button id="sound-toggle" class="sound-toggle" aria-label="音效开关" type="button">音</button>
+
+<!-- ============ 启动页 ============ -->
+<section id="screen-start" class="screen active">
+  <div class="start-wrap">
+    <div class="seal">文</div>
+    <h1 class="logo">文言文连连看</h1>
+    <p class="logo-sub">以游戏之心 · 习文言之道</p>
+    <div class="ornament"><span></span><i></i><span></span></div>
+    <p id="start-progress" class="start-stats"></p>
+    <button id="btn-start" class="btn btn-primary btn-lg" type="button">开始修习</button>
+    <button id="btn-achievements-start" class="btn btn-ghost" type="button">成就一览</button>
+    <p class="start-hint">音效由代码即时生成 · 进度保存在本机 · 无需网络</p>
+  </div>
+</section>
+
+<!-- ============ 题库选择页 ============ -->
+<section id="screen-banks" class="screen">
+  <header class="topbar">
+    <button class="btn btn-ghost icon-btn" data-nav="start" type="button" aria-label="返回">←</button>
+    <h2 class="topbar-title">选择题库</h2>
+    <span class="topbar-spacer"></span>
+  </header>
+  <div class="container">
+    <div id="banks-list" class="banks-list"></div>
+    <button id="btn-achievements" class="btn btn-ghost btn-block" type="button">成就一览</button>
+  </div>
+</section>
+
+<!-- ============ 关卡选择页 ============ -->
+<section id="screen-levels" class="screen">
+  <header class="topbar">
+    <button class="btn btn-ghost icon-btn" data-nav="banks" type="button" aria-label="返回题库">←</button>
+    <h2 id="levels-title" class="topbar-title"></h2>
+    <span class="topbar-spacer"></span>
+  </header>
+  <div class="container">
+    <div id="levels-list" class="levels-list"></div>
+  </div>
+</section>
+
+<!-- ============ 游戏界面 ============ -->
+<section id="screen-game" class="screen">
+  <header class="topbar">
+    <button id="btn-exit" class="btn btn-ghost icon-btn" type="button" aria-label="退出关卡">✕</button>
+    <h2 id="game-title" class="topbar-title"></h2>
+    <div id="game-timer" class="game-timer">限時 60s</div>
+  </header>
+  <div class="container game-container">
+    <p id="pairs-left" class="pairs-left"></p>
+    <div id="game-area">
+      <svg id="line-layer" xmlns="http://www.w3.org/2000/svg"></svg>
+      <div id="col-left" class="card-col"></div>
+      <div class="col-divider"><span>連</span></div>
+      <div id="col-right" class="card-col"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 结算页 ============ -->
+<section id="screen-results" class="screen">
+  <div class="container results-wrap">
+    <h2 id="results-title" class="results-title"></h2>
+    <div id="results-stars" class="results-stars"></div>
+    <div id="results-stats" class="results-stats"></div>
+    <div id="results-ach" class="results-ach"></div>
+    <div class="results-actions">
+      <button id="btn-retry" class="btn btn-primary" type="button">再来一局</button>
+      <button id="btn-next" class="btn btn-primary hidden" type="button">下一关</button>
+      <button id="btn-to-levels" class="btn btn-ghost" type="button">返回关卡</button>
+      <button id="btn-to-banks" class="btn btn-ghost" type="button">返回题库</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 成就弹窗 ============ -->
+<div id="ach-modal" class="modal">
+  <div class="modal-card">
+    <h3 class="modal-title">成就一览</h3>
+    <div id="ach-list" class="ach-list"></div>
+    <button id="btn-ach-close" class="btn btn-primary btn-block" type="button">知道了</button>
+  </div>
+</div>
+
+<!-- 倒计时 -->
+<div id="countdown" class="countdown"><span id="countdown-num">三</span></div>
+
+<!-- 浮动提示 -->
+<div id="toast" class="toast" aria-live="polite"></div>
+
+<script src="js/data.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

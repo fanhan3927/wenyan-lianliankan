@@ -2,6 +2,10 @@
 
 以游戏之心，习文言之道。一款离线可玩的文言文知识点配对小游戏。
 
+## 在线体验
+
+<https://fanhan3927.github.io/wenyan-lianliankan/>
+
 ## 快速开始
 
 无需安装、无需联网、无需构建。直接双击打开 `index.html` 即可游玩。
